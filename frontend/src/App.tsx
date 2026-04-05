@@ -28,10 +28,16 @@ function ProtectedLayout({ children }: { children: ReactNode }): React.JSX.Eleme
   );
 }
 
+function RootRedirect(): React.JSX.Element {
+  const token = useAppSelector(s => s.auth.token);
+  return <Navigate to={token ? '/dashboard' : '/login'} replace />;
+}
+
 function AppRoutes(): React.JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<RootRedirect />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/dashboard"
