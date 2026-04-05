@@ -59,7 +59,8 @@
     "errorToast": "Failed to register sale",
     "tooltipNoValue": "Enter a value greater than 0",
     "tooltipWholeNumber": "Units must be a whole number",
-    "tooltipNoDate": "Please select a date"
+    "tooltipNoDate": "Please select a date",
+    "tooltipFutureDate": "Date cannot be in the future"
   },
   "progressCard": {
     "achieved": "achieved",

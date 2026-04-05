@@ -7,18 +7,24 @@ import { ValidationError, NotFoundError, ForbiddenError } from '../errors/AppErr
 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
+function isNotFutureDate(dateStr: string): boolean {
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  return dateStr <= todayStr;
+}
+
 const createSaleSchema = z.discriminatedUnion('type', [
   z.object({
     type:        z.literal('monetary'),
     value:       z.number().positive(),
     description: z.string().optional(),
-    date:        z.string().regex(dateRegex, 'Date must be YYYY-MM-DD'),
+    date:        z.string().regex(dateRegex, 'Date must be YYYY-MM-DD').refine(isNotFutureDate, 'Date cannot be in the future'),
   }),
   z.object({
     type:        z.literal('units'),
     value:       z.number().int().positive(),
     description: z.string().optional(),
-    date:        z.string().regex(dateRegex, 'Date must be YYYY-MM-DD'),
+    date:        z.string().regex(dateRegex, 'Date must be YYYY-MM-DD').refine(isNotFutureDate, 'Date cannot be in the future'),
   }),
 ]);
 

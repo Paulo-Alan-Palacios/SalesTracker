@@ -24,13 +24,18 @@ export function SalesFormPage() {
   const [loading, setLoading] = useState(false);
 
   const parsedValue = saleType === 'monetary' ? parseFloat(value) : parseInt(value, 10);
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  const isFutureDate = date.trim() !== '' && date > todayStr;
   const isValid = !isNaN(parsedValue) && parsedValue > 0
     && (saleType === 'units' ? Number.isInteger(parsedValue) : true)
-    && date.trim() !== '';
+    && date.trim() !== ''
+    && !isFutureDate;
 
   function getTooltip(): string | null {
     if (isValid) return null;
     if (date.trim() === '') return t('salesForm.tooltipNoDate');
+    if (isFutureDate) return t('salesForm.tooltipFutureDate');
     if (saleType === 'units' && !isNaN(parsedValue) && parsedValue > 0 && !Number.isInteger(parsedValue))
       return t('salesForm.tooltipWholeNumber');
     return t('salesForm.tooltipNoValue');
@@ -50,6 +55,10 @@ export function SalesFormPage() {
     const parsed = saleType === 'monetary' ? parseFloat(value) : parseInt(value, 10);
     if (isNaN(parsed) || parsed <= 0) {
       setError(saleType === 'monetary' ? t('salesForm.invalidAmount') : t('salesForm.invalidQuantity'));
+      return;
+    }
+    if (isFutureDate) {
+      setError(t('salesForm.tooltipFutureDate'));
       return;
     }
 

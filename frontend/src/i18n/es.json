@@ -59,7 +59,8 @@
     "errorToast": "Error al registrar la venta",
     "tooltipNoValue": "Ingresa un valor mayor a 0",
     "tooltipWholeNumber": "Las unidades deben ser un número entero",
-    "tooltipNoDate": "Por favor selecciona una fecha"
+    "tooltipNoDate": "Por favor selecciona una fecha",
+    "tooltipFutureDate": "La fecha no puede ser en el futuro"
   },
   "progressCard": {
     "achieved": "alcanzado",
