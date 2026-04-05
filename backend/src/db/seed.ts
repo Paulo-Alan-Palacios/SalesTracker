@@ -8,7 +8,7 @@ function seed() {
     return;
   }
 
-  const hash = bcrypt.hashSync('password123', 10);
+  const hash = bcrypt.hashSync('password123', 12);
   const user = db.prepare(
     'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)'
   ).run('Ana', 'ana@example.com', hash);

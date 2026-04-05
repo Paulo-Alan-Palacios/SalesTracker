@@ -15,7 +15,7 @@ export function requireAuth(req: AuthRequest, _res: Response, next: NextFunction
   const token = header.slice(7);
   try {
     // config.jwtSecret is validated at startup — no non-null assertion needed
-    const payload = jwt.verify(token, config.jwtSecret) as unknown as { sub: number; email: string };
+    const payload = jwt.verify(token, config.jwtSecret, { algorithms: ['HS256'] }) as unknown as { sub: number; email: string };
     req.user = payload;
     next();
   } catch {

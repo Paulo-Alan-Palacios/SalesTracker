@@ -26,3 +26,9 @@ export class NotFoundError extends AppError {
     super(404, 'NOT_FOUND', message);
   }
 }
+
+export class ForbiddenError extends AppError {
+  constructor(message = 'Access denied') {
+    super(403, 'FORBIDDEN', message);
+  }
+}

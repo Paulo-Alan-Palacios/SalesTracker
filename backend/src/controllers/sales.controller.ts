@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { AuthRequest } from '../middleware/auth.middleware';
 import { SalesService } from '../services/sales.service';
 import { AchievementService } from '../services/achievement.service';
-import { ValidationError, NotFoundError } from '../errors/AppError';
+import { ValidationError, NotFoundError, ForbiddenError } from '../errors/AppError';
 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -43,6 +43,7 @@ export const SalesController = {
     try {
       const userId = parseInt(String(req.params.userId), 10);
       if (isNaN(userId)) throw new NotFoundError('Invalid user id');
+      if (userId !== req.user!.sub) throw new ForbiddenError();
       const sales = SalesService.getSalesByUser(userId);
       res.json(sales);
     } catch (err) {

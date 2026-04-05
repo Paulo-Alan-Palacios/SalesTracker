@@ -15,7 +15,7 @@ export const AuthService = {
     const token = jwt.sign(
       { sub: user.id, email: user.email, username: user.username },
       config.jwtSecret,
-      { expiresIn: config.jwtExpiresIn } as jwt.SignOptions
+      { expiresIn: config.jwtExpiresIn, algorithm: 'HS256' } as jwt.SignOptions
     );
 
     return {

@@ -4,7 +4,7 @@ import { SaleModel } from '../models/sale.model';
 export const ProgressService = {
   getProgress(userId: number) {
     const goals = GoalModel.findByUserId(userId);
-    const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toLocaleDateString('en-CA');
 
     return goals.map(goal => {
       const total = SaleModel.sumValueByTypeAndDateRange(userId, goal.type, goal.start_date, goal.end_date);

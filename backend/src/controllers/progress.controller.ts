@@ -2,7 +2,7 @@ import { Response, NextFunction } from 'express';
 import { AuthRequest } from '../middleware/auth.middleware';
 import { ProgressService } from '../services/progress.service';
 import { AchievementModel } from '../models/achievement.model';
-import { NotFoundError } from '../errors/AppError';
+import { NotFoundError, ForbiddenError } from '../errors/AppError';
 
 // NOTE: GET /progreso/:userId originally returned only goal progress.
 // GET /logros/user/:userId was a separate endpoint returning achievement unlock status.
@@ -13,6 +13,7 @@ export const ProgressController = {
     try {
       const userId = parseInt(String(req.params.userId), 10);
       if (isNaN(userId)) throw new NotFoundError('Invalid user id');
+      if (userId !== req.user!.sub) throw new ForbiddenError();
       const goals        = ProgressService.getProgress(userId);
       const achievements = AchievementModel.findByUserId(userId);
       res.json({ goals, achievements });

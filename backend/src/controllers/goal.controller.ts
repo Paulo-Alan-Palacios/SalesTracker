@@ -2,7 +2,7 @@ import { Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { AuthRequest } from '../middleware/auth.middleware';
 import { GoalModel } from '../models/goal.model';
-import { ValidationError, NotFoundError } from '../errors/AppError';
+import { ValidationError, NotFoundError, ForbiddenError } from '../errors/AppError';
 
 const createGoalSchema = z.object({
   title:      z.string().min(1),
@@ -33,6 +33,7 @@ export const GoalController = {
     try {
       const userId = parseInt(String(req.params.userId), 10);
       if (isNaN(userId)) throw new NotFoundError('Invalid user id');
+      if (userId !== req.user!.sub) throw new ForbiddenError();
       const goals = GoalModel.findByUserId(userId);
       res.json(goals);
     } catch (err) {

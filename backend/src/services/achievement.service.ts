@@ -84,7 +84,7 @@ export const AchievementService = {
   checkAndAward(userId: number): AwardedAchievement[] {
     const goals        = GoalModel.findByUserId(userId);
     const achievements = AchievementModel.findAll();
-    const today        = new Date().toISOString().slice(0, 10);
+    const today        = new Date().toLocaleDateString('en-CA');
     const newlyAwarded: AwardedAchievement[] = [];
 
     for (const achievement of achievements) {
