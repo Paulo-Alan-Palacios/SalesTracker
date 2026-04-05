@@ -13,7 +13,7 @@ interface HistoryTabProps {
   achievementsLoading: boolean;
 }
 
-export function PassedGoals({ allGoals, pastGoals, loading, achievements, achievementsLoading }: HistoryTabProps) {
+export function HistoryTab({ allGoals, pastGoals, loading, achievements, achievementsLoading }: HistoryTabProps) {
   const { t } = useTranslation();
   return (
     <div className="grid grid-cols-2 gap-6 items-start">

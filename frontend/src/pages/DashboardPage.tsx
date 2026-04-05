@@ -9,7 +9,7 @@ import type { TabItem } from '../components/Tabs';
 import { AchievementModal } from '../components/AchievementModal';
 import { useToast } from '../components/Toast';
 import { ActiveGoals } from './tabs/DashboardTab';
-import { PassedGoals } from './tabs/HistoryTab';
+import { HistoryTab } from './tabs/HistoryTab';
 import type { AchievementStatus } from '../types';
 
 export function DashboardPage() {
@@ -73,7 +73,7 @@ export function DashboardPage() {
       name: t('dashboard.tabHistory'),
       badge: pastGoals.length,
       component: (
-        <PassedGoals
+        <HistoryTab
           allGoals={goals}
           pastGoals={pastGoals}
           loading={progressLoading}

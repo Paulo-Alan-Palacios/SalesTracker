@@ -56,7 +56,10 @@
     "invalidAmount": "Amount must be a positive number",
     "invalidQuantity": "Quantity must be at least 1",
     "successToast": "Sale registered successfully!",
-    "errorToast": "Failed to register sale"
+    "errorToast": "Failed to register sale",
+    "tooltipNoValue": "Enter a value greater than 0",
+    "tooltipWholeNumber": "Units must be a whole number",
+    "tooltipNoDate": "Please select a date"
   },
   "progressCard": {
     "achieved": "achieved",

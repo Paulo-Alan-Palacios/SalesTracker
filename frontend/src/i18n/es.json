@@ -56,7 +56,10 @@
     "invalidAmount": "El monto debe ser un número positivo",
     "invalidQuantity": "La cantidad debe ser al menos 1",
     "successToast": "¡Venta registrada exitosamente!",
-    "errorToast": "Error al registrar la venta"
+    "errorToast": "Error al registrar la venta",
+    "tooltipNoValue": "Ingresa un valor mayor a 0",
+    "tooltipWholeNumber": "Las unidades deben ser un número entero",
+    "tooltipNoDate": "Por favor selecciona una fecha"
   },
   "progressCard": {
     "achieved": "alcanzado",

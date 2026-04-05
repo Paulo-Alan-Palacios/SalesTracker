@@ -23,6 +23,20 @@ export function SalesFormPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  const parsedValue = saleType === 'monetary' ? parseFloat(value) : parseInt(value, 10);
+  const isValid = !isNaN(parsedValue) && parsedValue > 0
+    && (saleType === 'units' ? Number.isInteger(parsedValue) : true)
+    && date.trim() !== '';
+
+  function getTooltip(): string | null {
+    if (isValid) return null;
+    if (date.trim() === '') return t('salesForm.tooltipNoDate');
+    if (saleType === 'units' && !isNaN(parsedValue) && parsedValue > 0 && !Number.isInteger(parsedValue))
+      return t('salesForm.tooltipWholeNumber');
+    return t('salesForm.tooltipNoValue');
+  }
+  const tooltip = getTooltip();
+
   function handleTypeSwitch(type: SaleType): void {
     setSaleType(type);
     setValue('');
@@ -130,9 +144,17 @@ export function SalesFormPage() {
             <AppButton type="button" variant="ghost" onClick={() => navigate('/dashboard')} className="flex-1">
               {t('salesForm.cancel')}
             </AppButton>
-            <AppButton type="submit" variant="primary" loading={loading} className="flex-1">
-              {t('salesForm.save')}
-            </AppButton>
+            <div className="relative group flex-1">
+              <AppButton type="submit" variant="primary" loading={loading} disabled={!isValid} className="w-full">
+                {t('salesForm.save')}
+              </AppButton>
+              {tooltip && (
+                <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 rounded-lg bg-neutral-900 px-3 py-2 text-caption text-neutral-100 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-10 text-center">
+                  {tooltip}
+                  <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-neutral-900" />
+                </div>
+              )}
+            </div>
           </div>
         </form>
       </div>

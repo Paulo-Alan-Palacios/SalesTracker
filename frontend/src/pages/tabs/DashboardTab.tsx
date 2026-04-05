@@ -7,7 +7,7 @@ import { RecentSalesPanel } from '../../components/RecentSalesPanel';
 import { SkeletonCard } from '../../components/Skeleton';
 import { AppButton } from '../../components/AppButton';
 
-interface DashboardTabProps {
+interface ActiveGoalsProps {
   activeGoals: GoalProgress[];
   sales: Sale[];
   progressLoading: boolean;
@@ -16,7 +16,7 @@ interface DashboardTabProps {
   achievementsLoading: boolean;
 }
 
-export function ActiveGoals({ activeGoals, sales, progressLoading, salesLoading, achievements, achievementsLoading }: DashboardTabProps) {
+export function ActiveGoals({ activeGoals, sales, progressLoading, salesLoading, achievements, achievementsLoading }: ActiveGoalsProps) {
   const { t } = useTranslation();
   return (
     <div className="grid grid-cols-2 gap-6 items-start">
