@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+ENV VITE_API_BASE_URL=https://backend-internal.up.railway.app
 RUN npm run build
 
 FROM node:22-alpine
