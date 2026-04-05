@@ -1,0 +1,105 @@
+{
+  "header": {
+    "registerSale": "+ Register Sale",
+    "logout": "Log out"
+  },
+  "login": {
+    "title": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign In",
+    "demoHint": "Psst… don't tell anyone we left the keys under the mat.",
+    "demoFill": "Fill in demo credentials"
+  },
+  "dashboard": {
+    "tabDashboard": "Dashboard",
+    "tabHistory": "History",
+    "activeGoals": "Active Goals",
+    "recentSales": "Recent Sales",
+    "noActiveGoals": "No active goals",
+    "noActiveGoalsHint": "Ask your manager to set a goal for the current period.",
+    "noSalesYet": "No sales yet",
+    "noSalesYetHint": "Register your first sale to start tracking progress.",
+    "sale": "Sale",
+    "units": "units",
+    "todaySales": "Today",
+    "todaySalesEmpty": "No sales today yet",
+    "todayTotal": "Total",
+    "recentSalesOther": "Previous"
+  },
+  "history": {
+    "title": "Past Goals",
+    "empty": "No past goals yet",
+    "emptyHint": "Completed and expired goals will appear here."
+  },
+  "stats": {
+    "title": "Stats",
+    "excludeActive": "Exclude active goals",
+    "noGoals": "No goals to show",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "notStarted": "Not Started",
+    "reached": "reached",
+    "of": "of",
+    "goals": "goals"
+  },
+  "salesForm": {
+    "title": "Register Sale",
+    "typeMoney": "Monetary",
+    "typeUnits": "Units",
+    "amount": "Amount ($)",
+    "quantity": "Quantity (units)",
+    "description": "Description (optional)",
+    "date": "Date",
+    "cancel": "Cancel",
+    "save": "Save Sale",
+    "invalidAmount": "Amount must be a positive number",
+    "invalidQuantity": "Quantity must be at least 1",
+    "successToast": "Sale registered successfully!",
+    "errorToast": "Failed to register sale"
+  },
+  "progressCard": {
+    "achieved": "achieved",
+    "goal": "Goal",
+    "active": "Active",
+    "inactive": "Inactive",
+    "typeMoney": "Monetary",
+    "typeUnits": "Units"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "unlocked": "Achievement unlocked",
+    "unlockedCount": "Unlocked {{unlocked}}/{{total}}",
+    "names": {
+      "goal_completed": "Goal Completed",
+      "super_fast": "Super Fast!",
+      "big_money": "Big Money",
+      "lightning": "Lightning"
+    },
+    "descriptions": {
+      "goal_completed": "Reach 100% of a goal's target.",
+      "super_fast": "Complete a goal with 50% or more of its time remaining.",
+      "big_money": "Complete a goal with a monetary target of $10,000 or more.",
+      "lightning": "Complete a goal on the same day it started."
+    },
+    "modal": {
+      "title": "Achievement Unlocked!",
+      "subtitle": "You hit a new milestone. Keep it up!",
+      "cta": "Awesome!"
+    }
+  },
+  "badge": {
+    "unlocked": "Unlocked",
+    "locked": "Locked"
+  },
+  "errors": {
+    "fetchProgress": "Could not load goals and achievements. Check your connection and try refreshing.",
+    "fetchSales": "Could not load sales history. Check your connection and try refreshing."
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "message": "The page you're looking for doesn't exist.",
+    "goToDashboard": "Go to Dashboard"
+  }
+}

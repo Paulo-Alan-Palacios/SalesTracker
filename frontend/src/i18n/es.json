@@ -1,0 +1,105 @@
+{
+  "header": {
+    "registerSale": "+ Registrar Venta",
+    "logout": "Cerrar sesión"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Iniciar sesión",
+    "demoHint": "Shhh… no le digas a nadie que dejamos las llaves bajo el tapete.",
+    "demoFill": "Llenar credenciales de demo"
+  },
+  "dashboard": {
+    "tabDashboard": "Activas",
+    "tabHistory": "Historial",
+    "activeGoals": "Metas activas",
+    "recentSales": "Ventas recientes",
+    "noActiveGoals": "Sin metas activas",
+    "noActiveGoalsHint": "Pide a tu gerente que establezca una meta para el período actual.",
+    "noSalesYet": "Sin ventas aún",
+    "noSalesYetHint": "Registra tu primera venta para comenzar a rastrear tu progreso.",
+    "sale": "Venta",
+    "units": "unidades",
+    "todaySales": "Hoy",
+    "todaySalesEmpty": "Sin ventas hoy aún",
+    "todayTotal": "Total",
+    "recentSalesOther": "Anteriores"
+  },
+  "history": {
+    "title": "Metas pasadas",
+    "empty": "Sin metas pasadas aún",
+    "emptyHint": "Las metas completadas y vencidas aparecerán aquí."
+  },
+  "stats": {
+    "title": "Estadísticas",
+    "excludeActive": "Excluir metas activas",
+    "noGoals": "Sin metas para mostrar",
+    "completed": "Completadas",
+    "inProgress": "En progreso",
+    "notStarted": "Sin iniciar",
+    "reached": "alcanzadas",
+    "of": "de",
+    "goals": "metas"
+  },
+  "salesForm": {
+    "title": "Registrar Venta",
+    "typeMoney": "Monetaria",
+    "typeUnits": "Unidades",
+    "amount": "Monto ($)",
+    "quantity": "Cantidad (unidades)",
+    "description": "Descripción (opcional)",
+    "date": "Fecha",
+    "cancel": "Cancelar",
+    "save": "Guardar Venta",
+    "invalidAmount": "El monto debe ser un número positivo",
+    "invalidQuantity": "La cantidad debe ser al menos 1",
+    "successToast": "¡Venta registrada exitosamente!",
+    "errorToast": "Error al registrar la venta"
+  },
+  "progressCard": {
+    "achieved": "alcanzado",
+    "goal": "Meta",
+    "active": "Activa",
+    "inactive": "Inactiva",
+    "typeMoney": "Monetaria",
+    "typeUnits": "Unidades"
+  },
+  "achievements": {
+    "title": "Logros",
+    "unlocked": "Logro desbloqueado",
+    "unlockedCount": "Desbloqueados {{unlocked}}/{{total}}",
+    "names": {
+      "goal_completed": "Meta Completada",
+      "super_fast": "¡Super Rápido!",
+      "big_money": "Gran Dinero",
+      "lightning": "Relámpago"
+    },
+    "descriptions": {
+      "goal_completed": "Alcanza el 100% del objetivo de una meta.",
+      "super_fast": "Completa una meta con el 50% o más del tiempo restante.",
+      "big_money": "Completa una meta con un objetivo monetario de $10,000 o más.",
+      "lightning": "Completa una meta el mismo día en que comenzó."
+    },
+    "modal": {
+      "title": "¡Logro desbloqueado!",
+      "subtitle": "Alcanzaste un nuevo hito. ¡Sigue así!",
+      "cta": "¡Genial!"
+    }
+  },
+  "badge": {
+    "unlocked": "Desbloqueado",
+    "locked": "Bloqueado"
+  },
+  "errors": {
+    "fetchProgress": "No se pudieron cargar las metas y logros. Revisa tu conexión e intenta recargar.",
+    "fetchSales": "No se pudo cargar el historial de ventas. Revisa tu conexión e intenta recargar."
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "message": "La página que buscas no existe.",
+    "goToDashboard": "Ir al panel"
+  }
+}

@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme (default) */
+:root {
+  --color-surface:          #FFFFFF;
+  --color-neutral-100:      #F3F4F6;
+  --color-neutral-200:      #E5E7EB;
+  --color-neutral-300:      #D1D5DB;
+  --color-neutral-400:      #9CA3AF;
+  --color-neutral-500:      #6B7280;
+  --color-neutral-700:      #374151;
+  --color-neutral-900:      #111827;
+  --color-brand-primary:    #2563EB;
+  --color-brand-secondary:  #7C3AED;
+  --color-success-base:     #16A34A;
+  --color-success-subtle:   #DCFCE7;
+  --color-warning-base:     #D97706;
+  --color-warning-subtle:   #FEF3C7;
+  --color-error-base:       #DC2626;
+}
+
+/* Dark theme */
+.dark {
+  --color-surface:          #1E293B;
+  --color-neutral-100:      #0F172A;
+  --color-neutral-200:      #334155;
+  --color-neutral-300:      #475569;
+  --color-neutral-400:      #94A3B8;
+  --color-neutral-500:      #CBD5E1;
+  --color-neutral-700:      #E2E8F0;
+  --color-neutral-900:      #F1F5F9;
+  --color-brand-primary:    #60A5FA;
+  --color-brand-secondary:  #A78BFA;
+  --color-success-base:     #4ADE80;
+  --color-success-subtle:   #14532D;
+  --color-warning-base:     #FCD34D;
+  --color-warning-subtle:   #451A03;
+  --color-error-base:       #F87171;
+}
+
+/* Form inputs respect theme surface color */
+input, select, textarea {
+  background-color: var(--color-surface);
+  color: var(--color-neutral-900);
+}

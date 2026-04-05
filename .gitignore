@@ -1,0 +1,12 @@
+# Planning artifacts (not part of the codebase)
+PLAN.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.sw?
