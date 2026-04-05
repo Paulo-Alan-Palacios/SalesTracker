@@ -39,17 +39,17 @@ function seed() {
   );
 
   // ── Past goals (previous month) ──────────────────────────────────────────
-  // Goal: $12 000 revenue target — ends at 121% → awards "Goal Completed" + "Big Money"
-  insertGoal.run(userId, 'Monthly Revenue Target',    12000, 'monetary', '$',     prevStart, prevEnd);
+  // Goal: $8 000 revenue target — ends at 106% → awards "Goal Completed" only (total < $10 000 avoids Big Money)
+  insertGoal.run(userId, 'Monthly Revenue Target',    8000, 'monetary', '$',     prevStart, prevEnd);
   // Goal: 30 product demos — ends at 60% (incomplete)
   insertGoal.run(userId, 'Product Demos Delivered',   30,    'units',    'demos', prevStart, prevEnd);
 
-  // Monetary sales for past goal (total $14 500)
-  ([ [2, 2000, 'Enterprise deal'],
-     [7, 3500, 'Quarterly contract'],
-     [12, 2800, 'Partnership agreement'],
-     [18, 4200, 'Renewal package'],
-     [24, 2000, 'Consulting project'],
+  // Monetary sales for past goal (total $8 500 → 106% of $8 000, but < $10 000)
+  ([ [2, 1500, 'Enterprise deal'],
+     [7, 2000, 'Quarterly contract'],
+     [12, 1800, 'Partnership agreement'],
+     [18, 2000, 'Renewal package'],
+     [24, 1200, 'Consulting project'],
   ] as [number, number, string][]).forEach(([day, value, desc]) =>
     insertSale.run(userId, 'monetary', value, fmt(prevYear, prevMonth, day), desc)
   );
@@ -66,7 +66,7 @@ function seed() {
   // ── Active goals (current month) ─────────────────────────────────────────
   // Goal: $15 000 revenue target — seeded at ~68% ($10 200)
   insertGoal.run(userId, 'Monthly Revenue Target',    15000, 'monetary', '$',       currStart, currEnd);
-  // Goal: 25 new clients — seeded at 104% (26/25) → awards "Super Fast!" if < 50% of time elapsed
+  // Goal: 25 new clients — seeded at 80% (20/25), under 100% to avoid Super Fast!
   insertGoal.run(userId, 'New Client Acquisitions',   25,    'units',    'clients', currStart, currEnd);
 
   // Monetary sales for active goal (total $10 200, spread across first 5 days)
@@ -79,11 +79,11 @@ function seed() {
     insertSale.run(userId, 'monetary', value, fmt(year, month, day), desc)
   );
 
-  // Unit sales for active goal (total 26 clients, spread across first 5 days)
-  ([ [1, 8, 'Trade show leads converted'],
-     [2, 6, 'Inbound referrals closed'],
+  // Unit sales for active goal (total 20 / 25 = 80%, under 100% to avoid Super Fast!)
+  ([ [1, 5, 'Trade show leads converted'],
+     [2, 4, 'Inbound referrals closed'],
      [3, 5, 'Cold outreach closed'],
-     [4, 4, 'Partnership referrals'],
+     [4, 3, 'Partnership referrals'],
      [5, 3, 'Demo to close'],
   ] as [number, number, string][]).forEach(([day, value, desc]) =>
     insertSale.run(userId, 'units', value, fmt(year, month, day), desc)
@@ -94,8 +94,8 @@ function seed() {
 
   console.log('Seed complete.');
   console.log('  User:  ana@example.com / password123');
-  console.log(`  Past:  Monthly Revenue (121% ✓ Goal Completed + Big Money) | Product Demos (60%)`);
-  console.log(`  Active: Monthly Revenue (~68%) | New Client Acquisitions (104% ✓ Super Fast!)`);
+  console.log(`  Past:  Monthly Revenue (106% ✓ Goal Completed only) | Product Demos (60%)`);
+  console.log(`  Active: Monthly Revenue (~68%) | New Client Acquisitions (80%)`);
 }
 
 function fmt(year: number, month: number, day: number): string {
