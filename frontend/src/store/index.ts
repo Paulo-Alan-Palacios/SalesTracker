@@ -5,6 +5,8 @@ import progressReducer from './slices/progressSlice';
 
 // NOTE: achievementSlice was removed when the /logros/user/:userId endpoint was
 // merged into /progreso/:userId. Achievements now live in progress state.
+
+// Esto se hizo para cumplir los requisitos especícos del entregable (3 endpoints)
 export const store = configureStore({
   reducer: {
     auth:     authReducer,

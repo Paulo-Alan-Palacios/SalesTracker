@@ -79,9 +79,14 @@ These are displayed on the login page — no need to memorise them.
 
 ---
 
-## Deployment
+## Documentation
 
-See [`docs/api.md`](docs/api.md) for the full API reference and the [Design System](docs/design-system.md) for token/component docs.
+- [`docs/api.md`](docs/api.md) — full API endpoint reference
+- [`docs/design-system.md`](docs/design-system.md) — design tokens and component usage
+
+---
+
+## Deployment
 
 ### Frontend → Vercel
 
@@ -92,7 +97,7 @@ See [`docs/api.md`](docs/api.md) for the full API reference and the [Design Syst
 ### Backend → Render / Railway
 
 1. Set **Root Directory** to `backend`
-2. Build: `npm run build` · Start: `node dist/app.js`
+2. Build: `npm run build` · Start: `npm start`
 3. Add env vars from `backend/.env.example` (set a strong `JWT_SECRET`)
 4. Set `CORS_ORIGIN` to your Vercel frontend URL
 
