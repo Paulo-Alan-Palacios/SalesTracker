@@ -1,6 +1,10 @@
 # Planning artifacts (not part of the codebase)
 DesignDocument.md
 
+# Root dependencies (concurrently for dev script)
+node_modules/
+package-lock.json
+
 # OS
 .DS_Store
 Thumbs.db

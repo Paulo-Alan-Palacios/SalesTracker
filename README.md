@@ -6,6 +6,62 @@ A full-stack sales goals tracker where users can set monetary and unit-based goa
 
 ---
 
+## Local Setup
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Quick start (1 command)
+
+```bash
+npm start
+```
+
+`npm start` handles everything: installing dependencies, creating `.env` files,
+seeding the demo database, and launching both servers concurrently.
+
+| Server | URL |
+|---|---|
+| Frontend | http://localhost:5173 |
+| Backend | http://localhost:3000 |
+
+
+### Demo credentials
+
+```
+Email:    ana@example.com
+Password: password123
+```
+
+These are also displayed on the login page.
+
+### Manual setup (optional)
+
+<details>
+<summary>Expand for step-by-step instructions</summary>
+
+**Backend**
+```bash
+cd backend
+cp .env.example .env        # fill in JWT_SECRET (min 32 chars)
+npm install
+npm run seed                # creates SQLite DB + demo user
+npm run dev                 # http://localhost:3000
+```
+
+**Frontend**
+```bash
+cd frontend
+cp .env.example .env        # set VITE_API_BASE_URL=http://localhost:3000
+npm install
+npm run dev                 # http://localhost:5173
+```
+</details>
+
+---
+
 ## Features
 
 - 📊 **Dashboard** — live goal progress with a donut stats chart and achievement badges
@@ -15,67 +71,6 @@ A full-stack sales goals tracker where users can set monetary and unit-based goa
 - 🌙 **Dark mode** — full light/dark theme support via CSS variables
 - 🌐 **i18n** — English and Spanish, switchable at runtime
 - 🔐 **JWT auth** — token-based login; demo credentials shown on the login page
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Frontend | React 19, TypeScript, Vite, Redux Toolkit, React Router v7, Tailwind CSS v3, i18next |
-| Backend | Node.js, Express 5, TypeScript, SQLite (better-sqlite3), Zod, JWT |
-| Deployment | Vercel (frontend) + Render / Railway (backend) |
-
----
-
-## Project Structure
-
-```
-SalesTracker/
-├── frontend/          # Vite + React + TypeScript SPA
-├── backend/           # Express REST API
-├── docs/
-│   ├── api.md         # API endpoint reference
-│   └── design-system.md  # Tokens, components, usage rules
-└── DesignDocument.md  # Original feature spec
-```
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Backend
-
-```bash
-cd backend
-cp .env.example .env        # fill in JWT_SECRET
-npm install
-npm run seed                # creates SQLite DB + demo user
-npm run dev                 # http://localhost:3000
-```
-
-### Frontend
-
-```bash
-cd frontend
-cp .env.example .env        # set VITE_API_BASE_URL=http://localhost:3000
-npm install
-npm run dev                 # http://localhost:5173
-```
-
-### Demo credentials
-
-```
-Email:    ana@example.com
-Password: password123
-```
-
-These are displayed on the login page — no need to memorise them.
 
 ---
 
